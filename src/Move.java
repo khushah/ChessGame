@@ -17,5 +17,15 @@ public class Move
 			return true;
 		return false;
 	}
+	
+	public boolean isAPlusMove()
+	{
+		return false;
+	}
+	
+	public boolean isAnLShapedMove()
+	{
+		return false;
+	}
 
 }
