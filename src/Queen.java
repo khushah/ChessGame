@@ -7,14 +7,17 @@ public class Queen extends ChessPiece{
 
 	@Override
 	public boolean canMoveTo(int destinationX, int destinationY) {
-		// TODO Auto-generated method stub
+		Move move = new Move(positionX,positionY,destinationX,destinationY);
+		if(move.isADiagonalMove() || move.isAPlusMove()){
+			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public boolean moveTo(int destinationX, int destinationY) {
-		// TODO Auto-generated method stub
-		return false;
+	public void moveTo(int destinationX, int destinationY) {
+		positionX = destinationX;
+		positionY = destinationY;
 	}
 
 }

@@ -1,4 +1,5 @@
-public class Bishop extends ChessPiece {
+
+public class Bishop extends ChessPiece{
 
 	public Bishop(char color, int positionX, int positionY) 
 	{
@@ -6,13 +7,20 @@ public class Bishop extends ChessPiece {
 	}
 
 	@Override
-	public boolean canMoveTo(int destinationX, int destinationY) {
+	public boolean canMoveTo(int destinationX, int destinationY) 
+	{
+		Move move = new Move(positionX,positionY,destinationX,destinationY);
+		if(move.isADiagonalMove()){
+			return true;
+		}
 		return false;
 	}
 
 	@Override
-	public boolean moveTo(int destinationX, int destinationY) {
-		return false;
-	}
 
+	public void moveTo(int destinationX, int destinationY) {
+		positionX = destinationX;
+		positionY = destinationY;
+	}
+	
 }
