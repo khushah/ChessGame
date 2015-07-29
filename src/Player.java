@@ -132,6 +132,36 @@ public class Player
 		}
 	}
 	
+	public ArrayList<String> returnStatus()
+	{
+		ArrayList<String> remainingChessPieces = new ArrayList<String>();
+		for(ChessPiece cp : setOfPieces)
+		{
+			if(cp.isCaptured()==false)
+			{
+				String currentChessPieceStatus = color +" "+ getTypeString(cp) +" -> ("+ cp.getPositionX()+","+cp.getPositionX()+")";
+				remainingChessPieces.add(currentChessPieceStatus);
+			}
+		}
+		return remainingChessPieces;
+		
+	}
+	private String getTypeString(ChessPiece cp) 
+	{
+		if(cp instanceof King)
+			return "K";
+		else if (cp instanceof Queen)
+			return "Q";
+		else if (cp instanceof Knight)
+			return "N";
+		else if (cp instanceof Bishop)
+			return "B";
+		else if (cp instanceof Rook)
+			return "R";
+		else if (cp instanceof Pawn)
+			return "P";
+		return null;
+	}
 	
 	
 }
