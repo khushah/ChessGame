@@ -7,8 +7,8 @@ public class ChessGame {
 	public void formatInput(String inputMoves){
 		String input[] = inputMoves.replace(".", " ").split(" ");
 		int colorFlag=0;
-		Player playerA = new Player("white");
-		Player playerB = new Player("black");
+		Player playerA = new Player('W');
+		Player playerB = new Player('B');
 		for(int i=0 ; i<input.length ; i++){
 			if(i%3!=0 && colorFlag==0){
 				playerA.play(input[i]);
