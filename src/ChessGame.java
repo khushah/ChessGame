@@ -19,10 +19,16 @@ public class ChessGame {
 			if(i%3!=0 && colorFlag==0){
 				playerA.play((char)move[0],move[1],move[2],move[3],capture);
 				colorFlag=1;
+				if(capture){
+					playerB.removeChessPieceAt(move[1], move[2]);
+				}
 			}
 			else if(i%3!=0 && colorFlag==1){
 				playerB.play((char)move[0],move[1],move[2],move[3],capture);
 				colorFlag=0;
+				if(capture){
+					playerA.removeChessPieceAt(move[1], move[3]);
+				}
 			}
 		}
 	}
