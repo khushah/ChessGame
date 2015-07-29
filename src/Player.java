@@ -44,31 +44,45 @@ public class Player
 			case 'N':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Knight && cp.canMoveTo(destinationX, destinationY))
+					if(cp.isCaptured()==false && cp instanceof Knight && cp.canMoveTo(destinationX, destinationY))
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
 			case 'B':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Bishop && cp.canMoveTo(destinationX, destinationY))
+					if(cp.isCaptured()==false &&cp instanceof Bishop && cp.canMoveTo(destinationX, destinationY))
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
 			case 'R':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Rook && cp.canMoveTo(destinationX, destinationY))
+					if(cp.isCaptured()==false && cp instanceof Rook && cp.canMoveTo(destinationX, destinationY))
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
 			case 'P':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Pawn && ((Pawn)cp).canMoveTo(destinationX, destinationY,capture))	///
+					if(cp.isCaptured()==false && cp instanceof Pawn && ((Pawn)cp).canMoveTo(destinationX, destinationY,capture))	///
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
+		}
+	}
+	
+	public void play(char rank,int destinationX,int destinationY,int currentPosition,boolean capture)
+	{
+		
+	}
+	
+	public void removeChessPieceAt(int positionX,int positionY)
+	{
+		for(ChessPiece cp : setOfPieces)
+		{
+			if(cp.getPositionX()==positionX && cp.getPositionY()==positionY)
+				cp.setCaptured(true);
 		}
 	}
 	

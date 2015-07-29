@@ -32,6 +32,10 @@ abstract public class ChessPiece {
 		this.positionY = positionY;
 	}
 	
+	public boolean isCaptured() {
+		return isCaptured;
+	}
+
 	public void setCaptured(boolean isCaptured) {
 		this.isCaptured = isCaptured;
 	}
