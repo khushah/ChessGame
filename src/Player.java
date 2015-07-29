@@ -137,7 +137,7 @@ public class Player
 			case 'P':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Pawn && cp.getPositionX()==identifyingPositionX)	///
+					if(cp instanceof Pawn && cp.getPositionX()==identifyingPositionX)	
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
@@ -160,7 +160,7 @@ public class Player
 		{
 			if(cp.isCaptured()==false)
 			{
-				String currentChessPieceStatus = color +" "+ getTypeString(cp) +" -> ("+ cp.getPositionX()+","+cp.getPositionX()+")";
+				String currentChessPieceStatus = color +" "+ getTypeString(cp) +" -> ("+ cp.getPositionX()+","+cp.getPositionY()+")";
 				remainingChessPieces.add(currentChessPieceStatus);
 			}
 		}
