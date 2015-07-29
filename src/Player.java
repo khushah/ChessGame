@@ -72,9 +72,9 @@ public class Player
 		}
 	}
 	
-	public void play(char rank,int destinationX,int destinationY,int currentPositionX,boolean capture)
+	public void play(char rank,int destinationX,int destinationY,int identifyingPositionX,boolean capture)
 	{
-		if(currentPositionX==-1)
+		if(identifyingPositionX==-1)
 			play(rank, destinationX, destinationY, capture);
 		switch(rank)
 		{
@@ -95,28 +95,28 @@ public class Player
 			case 'N':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Knight && cp.getPositionX()==currentPositionX)
+					if(cp instanceof Knight && cp.getPositionX()==identifyingPositionX)
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
 			case 'B':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Bishop && cp.getPositionX()==currentPositionX)
+					if(cp instanceof Bishop && cp.getPositionX()==identifyingPositionX)
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
 			case 'R':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Rook && cp.getPositionX()==currentPositionX)
+					if(cp instanceof Rook && cp.getPositionX()==identifyingPositionX)
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
 			case 'P':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Pawn && cp.getPositionX()==currentPositionX)	///
+					if(cp instanceof Pawn && cp.getPositionX()==identifyingPositionX)	///
 						cp.moveTo(destinationX, destinationY);
 				}
 				break;
