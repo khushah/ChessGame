@@ -2,7 +2,7 @@
 public class Pawn extends ChessPiece{
 	
 	public static final int STARTW = 2;
-	public static final int STARTB = 6;
+	public static final int STARTB = 7;
 
 	public Pawn(char color, int positionX, int positionY) {
 		super(color, positionX, positionY);
@@ -19,7 +19,7 @@ public class Pawn extends ChessPiece{
 				return true;
 			}
 		}else {
-			if(positionY == STARTW || positionX == STARTB){
+			if((positionY == STARTW && color == 'W') || (positionX == STARTB && color == 'B')){
 				if(Math.abs(positionY - destinationY) == 2 || Math.abs(positionY - destinationY) == 1){
 					return true;
 				}else {
