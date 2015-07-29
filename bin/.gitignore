@@ -7,3 +7,7 @@
 /Knight.class
 /Bishop.class
 /Move.class
+/King.class
+/Pawn.class
+/Queen.class
+/Rook.class

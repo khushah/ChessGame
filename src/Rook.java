@@ -1,4 +1,5 @@
-public class Bishop extends ChessPiece {
+
+public class Rook extends ChessPiece{
 
 	@Override
 	public boolean canMoveTo(int destinationX, int destinationY) {
