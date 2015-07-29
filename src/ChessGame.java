@@ -11,11 +11,11 @@ public class ChessGame {
 		Player playerB = new Player("black");
 		for(int i=0 ; i<input.length ; i++){
 			if(i%3!=0 && colorFlag==0){
-				playerA.move(input[i]);
+				playerA.play(input[i]);
 				colorFlag=1;
 			}
 			else if(i%3!=0 && colorFlag==1){
-				playerB.move(input[i]);
+				playerB.play(input[i]);
 				colorFlag=0;
 			}
 		}
