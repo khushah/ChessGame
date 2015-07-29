@@ -7,8 +7,29 @@ public class Player
 	public char color;
 	public ArrayList<ChessPiece> setOfPieces= new ArrayList<ChessPiece>();
 	
+	
 	public Player(char color){
 		setColor(color);
+		int initialY;
+		if(color=='W')
+			initialY=1;
+		else
+			initialY=8;
+		setOfPieces.add( new King(color,5,initialY));
+		setOfPieces.add( new Queen(color,4,initialY));
+		setOfPieces.add( new Bishop(color,3,initialY));
+		setOfPieces.add( new Bishop(color,6,initialY));
+		setOfPieces.add( new Knight(color,2,initialY));
+		setOfPieces.add( new Knight(color,7,initialY));
+		setOfPieces.add( new Rook(color,1,initialY));
+		setOfPieces.add( new Rook(color,8,initialY));
+		if(color=='W')
+			initialY=2;
+		else
+			initialY=7;
+		for(int i=1;i<=8;i++){
+			setOfPieces.add( new Pawn(color,i,initialY));
+		}
 	}
 	public char getColor() {
 		return color;
