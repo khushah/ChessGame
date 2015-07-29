@@ -3,8 +3,6 @@
 
 public class ChessBoard {
 	
-	ChessPiece chessPiece = new ChessPiece();
-	
 	public void nextMove(String move){
 		return;
 	}
