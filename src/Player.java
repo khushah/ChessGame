@@ -72,9 +72,55 @@ public class Player
 		}
 	}
 	
-	public void play(char rank,int destinationX,int destinationY,int currentPosition,boolean capture)
+	public void play(char rank,int destinationX,int destinationY,int currentPositionX,boolean capture)
 	{
-		
+		if(currentPositionX==-1)
+			play(rank, destinationX, destinationY, capture);
+		switch(rank)
+		{
+			case 'K':
+				for(ChessPiece cp : setOfPieces)
+				{
+					if(cp instanceof King)
+						cp.moveTo(destinationX, destinationY);
+				}
+				break;
+			case 'Q':
+				for(ChessPiece cp : setOfPieces)
+				{
+					if(cp instanceof Queen)
+						cp.moveTo(destinationX, destinationY);
+				}
+				break;
+			case 'N':
+				for(ChessPiece cp : setOfPieces)
+				{
+					if(cp instanceof Knight && cp.getPositionX()==currentPositionX)
+						cp.moveTo(destinationX, destinationY);
+				}
+				break;
+			case 'B':
+				for(ChessPiece cp : setOfPieces)
+				{
+					if(cp instanceof Bishop && cp.getPositionX()==currentPositionX)
+						cp.moveTo(destinationX, destinationY);
+				}
+				break;
+			case 'R':
+				for(ChessPiece cp : setOfPieces)
+				{
+					if(cp instanceof Rook && cp.getPositionX()==currentPositionX)
+						cp.moveTo(destinationX, destinationY);
+				}
+				break;
+			case 'P':
+				for(ChessPiece cp : setOfPieces)
+				{
+					if(cp instanceof Pawn && cp.getPositionX()==currentPositionX)	///
+						cp.moveTo(destinationX, destinationY);
+				}
+				break;
+		}
 	}
 	
 	public void removeChessPieceAt(int positionX,int positionY)
