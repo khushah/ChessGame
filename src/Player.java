@@ -86,9 +86,8 @@ public class Player
 			case 'P':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp.isCaptured()==false && cp instanceof Pawn && ((Pawn)cp).canMoveTo(destinationX, destinationY,capture))	///
+					if(cp.isCaptured()==false && cp instanceof Pawn && ((Pawn)cp).canMoveTo(destinationX, destinationY,capture))
 						{
-						System.out.println("Pawn entered");
 						cp.moveTo(destinationX, destinationY);
 						}
 				}
