@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class ChessGame {
@@ -83,6 +84,20 @@ public class ChessGame {
 		int splittedMove[]={piece, posX, posY,currentPos,capture?1:0};
 		return splittedMove;
 	}
+	public void display(){
+		Player playerA= new Player('W');
+		Player playerB= new Player('B');
+		ArrayList<String> statusOfPlayerA= playerA.returnStatus();
+		ArrayList<String> statusOfPlayerB= playerB.returnStatus();
+		System.out.println("Current positions of Player A");
+		for(int i=0; i< statusOfPlayerA.size(); i++){
+			System.out.println(statusOfPlayerA.get(i));
+		}
+		System.out.println("Current positions of Player B");
+		for(int i=0; i< statusOfPlayerB.size(); i++){
+			System.out.println(statusOfPlayerB.get(i));
+		}
+	}
 	public static void main(String[] args) throws IOException {
 		
 		FileReader pgnInputFile= new FileReader("C:/Users/test/Desktop/pgnInputFile.txt");
@@ -90,6 +105,8 @@ public class ChessGame {
 		String inputMoves=in.readLine();
 		ChessGame chessGame = new ChessGame();
 		chessGame.formatInput(inputMoves);
+		System.out.println("Success");
+		chessGame.display();
 	}
 
 }
