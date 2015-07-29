@@ -23,9 +23,9 @@ abstract public class ChessPiece {
 		this.positionY = positionY;
 	}
 	
-	abstract public boolean canMoveTo(int destinationX,int destinationY);
+	public abstract boolean canMoveTo(int destinationX,int destinationY);
 	
-	abstract public boolean moveTo(int destinationX,int destinationY);
+	public abstract void moveTo(int destinationX,int destinationY);
 	
 	
 }
