@@ -4,6 +4,14 @@ abstract public class ChessPiece {
 	public char color;
 	public int positionX;
 	public int positionY;
+	
+	public ChessPiece(char color,int positionX,int positionY) 
+	{
+		this.color= color;
+		this.positionX = positionX;
+		this.positionY = positionY;
+	}
+	
 	public char getColor() {
 		return color;
 	}
