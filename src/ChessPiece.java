@@ -4,6 +4,7 @@ abstract public class ChessPiece {
 	public char color;
 	public int positionX;
 	public int positionY;
+	public boolean isCaptured = false;
 	
 	public ChessPiece(char color,int positionX,int positionY) 
 	{
@@ -31,6 +32,10 @@ abstract public class ChessPiece {
 		this.positionY = positionY;
 	}
 	
+	public void setCaptured(boolean isCaptured) {
+		this.isCaptured = isCaptured;
+	}
+
 	public abstract boolean canMoveTo(int destinationX,int destinationY);
 	
 	public abstract void moveTo(int destinationX,int destinationY);

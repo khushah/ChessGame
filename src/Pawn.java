@@ -10,6 +10,12 @@ public class Pawn extends ChessPiece{
 		Move move = new Move(positionX,positionY,destinationX,destinationY);
 		return false;
 	}
+	
+	public boolean canMoveTo(int destinationX, int destinationY,boolean capture)
+	{
+		return capture;
+		
+	}
 
 	@Override
 	public void moveTo(int destinationX, int destinationY) {
