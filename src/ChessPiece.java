@@ -1,5 +1,5 @@
 
-public class ChessPiece {
+abstract public class ChessPiece {
 	
 	public char color;
 	public int positionX;
@@ -22,4 +22,10 @@ public class ChessPiece {
 	public void setPositionY(int positionY) {
 		this.positionY = positionY;
 	}
+	
+	abstract public boolean canMoveTo(int destinationX,int destinationY);
+	
+	abstract public boolean moveTo(int destinationX,int destinationY);
+	
+	
 }
