@@ -1,9 +1,9 @@
-import java.util.*;
-import java.io.*;
+//import java.util.*;
+//import java.io.*;
 
 public class ChessBoard {
 	
-	private ChessPieces chessPieces[][] = new ChessPieces();
+	ChessPiece chessPiece = new ChessPiece();
 	
 	public void nextMove(String move){
 		return;
@@ -13,5 +13,10 @@ public class ChessBoard {
 		ChessBoard chessBoard = new ChessBoard();
 		chessBoard.nextMove("e4");
 		return;
+	}
+
+	public void play(String inputMoves) {
+		return;
+		
 	}
 }

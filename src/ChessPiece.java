@@ -8,7 +8,7 @@ public class ChessPiece {
 		return color;
 	}
 	public void setColor(char color) {
-		color = color;
+		this.color = color;
 	}
 	public int getPositionX() {
 		return positionX;
