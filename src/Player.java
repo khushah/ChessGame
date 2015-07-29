@@ -45,7 +45,6 @@ public class Player
 	}
 	public void play(char rank,int destinationX,int destinationY,boolean capture) 
 	{
-		
 		switch(rank)
 		{
 			case 'K':
@@ -65,8 +64,9 @@ public class Player
 			case 'N':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp.isCaptured()==false && cp instanceof Knight && cp.canMoveTo(destinationX, destinationY))
+					if(cp.isCaptured()==false && cp instanceof Knight && cp.canMoveTo(destinationX, destinationY)){
 						cp.moveTo(destinationX, destinationY);
+					}
 				}
 				break;
 			case 'B':
@@ -87,7 +87,10 @@ public class Player
 				for(ChessPiece cp : setOfPieces)
 				{
 					if(cp.isCaptured()==false && cp instanceof Pawn && ((Pawn)cp).canMoveTo(destinationX, destinationY,capture))	///
+						{
+						System.out.println("Pawn entered");
 						cp.moveTo(destinationX, destinationY);
+						}
 				}
 				break;
 		}
@@ -137,8 +140,9 @@ public class Player
 			case 'P':
 				for(ChessPiece cp : setOfPieces)
 				{
-					if(cp instanceof Pawn && cp.getPositionX()==identifyingPositionX)	///
+					if(cp instanceof Pawn && cp.getPositionX()==identifyingPositionX)	{
 						cp.moveTo(destinationX, destinationY);
+					}
 				}
 				break;
 		}
@@ -160,7 +164,7 @@ public class Player
 		{
 			if(cp.isCaptured()==false)
 			{
-				String currentChessPieceStatus = color +" "+ getTypeString(cp) +" -> ("+ cp.getPositionX()+","+cp.getPositionX()+")";
+				String currentChessPieceStatus = color +" "+ getTypeString(cp) +" -> ("+ cp.getPositionX()+","+cp.getPositionY()+")";
 				remainingChessPieces.add(currentChessPieceStatus);
 			}
 		}

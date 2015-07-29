@@ -16,14 +16,17 @@ public class Pawn extends ChessPiece{
 	public boolean canMoveTo(int destinationX, int destinationY, boolean capture) {
 		if(capture){
 			if(Math.abs(positionX-destinationX)==Math.abs(positionY-destinationY)){
+
 				return true;
 			}
 		}else {
-			if((positionY == STARTW && color == 'W') || (positionX == STARTB && color == 'B')){
-				if(Math.abs(positionY - destinationY) == 2 || Math.abs(positionY - destinationY) == 1){
+			if((positionY == STARTW && color == 'W') || (positionY == STARTB && color == 'B')){
+				int displacementY = Math.abs(positionY - destinationY);
+				if( ((displacementY == 2) ||
+						(displacementY == 1))&&(positionX == destinationX)){
 					return true;
 				}else {
-					if(Math.abs(positionY - destinationY) == 1){
+					if((Math.abs(positionY - destinationY) == 1)&&(positionX == destinationX)){
 						return true;
 					}
 				}

@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 
 public class ChessGame {
+	Player playerA = new Player('W');
+	Player playerB = new Player('B');
 	public void formatInput(String inputMoves){
 		String input[] = inputMoves.replace(".", " ").split(" ");
 		int colorFlag=0;
 		boolean capture = false;
-		Player playerA = new Player('W');
-		Player playerB = new Player('B');
+		
 		int[] move = null;
 		for(int i=0 ; i<input.length ; i++){
 			if(i%3!=0){
@@ -18,6 +19,7 @@ public class ChessGame {
 				capture= (move[4]==1)?true:false;
 			}
 			if(i%3!=0 && colorFlag==0){
+				
 				playerA.play((char)move[0],move[1],move[2],move[3],capture);
 				colorFlag=1;
 				if(capture){
@@ -25,6 +27,7 @@ public class ChessGame {
 				}
 			}
 			else if(i%3!=0 && colorFlag==1){
+				
 				playerB.play((char)move[0],move[1],move[2],move[3],capture);
 				colorFlag=0;
 				if(capture){
@@ -85,8 +88,6 @@ public class ChessGame {
 		return splittedMove;
 	}
 	public void display(){
-		Player playerA= new Player('W');
-		Player playerB= new Player('B');
 		ArrayList<String> statusOfPlayerA= playerA.returnStatus();
 		ArrayList<String> statusOfPlayerB= playerB.returnStatus();
 		System.out.println("Current positions of Player A");
@@ -105,7 +106,6 @@ public class ChessGame {
 		String inputMoves=in.readLine();
 		ChessGame chessGame = new ChessGame();
 		chessGame.formatInput(inputMoves);
-		System.out.println("Success");
 		chessGame.display();
 	}
 
