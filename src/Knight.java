@@ -9,10 +9,7 @@ public class Knight extends ChessPiece{
 
 	public boolean canMoveTo(int destinationX, int destinationY) {
 		Move move = new Move(positionX,positionY,destinationX,destinationY);
-		if(move.isAnLShapedMove()){
-			return true;
-		}
-		return false;
+			return move.isAnLShapedMove();
 	}
 
 	@Override

@@ -10,10 +10,7 @@ public class Bishop extends ChessPiece{
 	public boolean canMoveTo(int destinationX, int destinationY) 
 	{
 		Move move = new Move(positionX,positionY,destinationX,destinationY);
-		if(move.isADiagonalMove()){
-			return true;
-		}
-		return false;
+			return move.isADiagonalMove();
 	}
 
 	@Override

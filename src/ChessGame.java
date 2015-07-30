@@ -14,7 +14,7 @@ public class ChessGame {
 		
 		int[] move = null;
 		for(int i=0 ; i<input.length ; i++){
-			if(i%3!=0){
+			if(i%3!=0 && !isCastlingMove(input[i])){
 				move = splitMove(input[i]);
 				capture= (move[4]==1)?true:false;
 			}
@@ -31,7 +31,7 @@ public class ChessGame {
 				playerB.play((char)move[0],move[1],move[2],move[3],capture);
 				colorFlag=0;
 				if(capture){
-					playerA.removeChessPieceAt(move[1], move[3]);
+					playerA.removeChessPieceAt(move[1], move[2]);
 				}
 			}
 		}
@@ -39,6 +39,10 @@ public class ChessGame {
 	public boolean isPawnMove(String move){
 		char firstChar=move.charAt(0);
 		return firstChar >='a' && firstChar <='z';
+	}
+	public boolean isCastlingMove(String move){
+		char firstChar=move.charAt(0);
+		return firstChar =='O';
 	}
 	public int[] splitMove(String move){
 		char piece;
