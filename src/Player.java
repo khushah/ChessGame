@@ -7,6 +7,8 @@ public class Player
 	public char color;
 	public ArrayList<ChessPiece> setOfPieces= new ArrayList<ChessPiece>();
 	
+	public static final int KING_SIDE = 8;
+	public static final int QUEEN_SIDE = 1;
 	
 	public Player(char color){
 		setColor(color);
@@ -144,6 +146,53 @@ public class Player
 					}
 				}
 				break;
+		}
+	}
+	
+	public void playCastlingMove(boolean isKingSide)
+	{
+		if(isKingSide)
+		{
+			King king = null;
+			for(ChessPiece cp : setOfPieces)
+			{
+				if(cp instanceof King)
+				{
+					cp.moveTo(cp.getPositionX()+2, cp.getPositionY());
+					king = (King)cp;
+					break;
+				}
+			}
+			for(ChessPiece cp : setOfPieces)
+			{
+				if(cp instanceof Rook && cp.getPositionX()==KING_SIDE )
+				{
+					cp.moveTo(king.getPositionX()-1, cp.getPositionY());
+					break;
+				}
+			}
+			
+		}
+		else
+		{
+			King king = null;
+			for(ChessPiece cp : setOfPieces)
+			{
+				if(cp instanceof King)
+				{
+					cp.moveTo(cp.getPositionX()-2, cp.getPositionY());
+					king = (King)cp;
+					break;
+				}
+			}
+			for(ChessPiece cp : setOfPieces)
+			{
+				if(cp instanceof Rook && cp.getPositionX()==QUEEN_SIDE )
+				{
+					cp.moveTo(king.getPositionX()+1, cp.getPositionY());
+					break;
+				}
+			}
 		}
 	}
 	
