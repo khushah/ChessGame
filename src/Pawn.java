@@ -14,7 +14,8 @@ public class Pawn extends ChessPiece{
 	}
 
 	public boolean canMoveTo(int destinationX, int destinationY, boolean capture) {
-		if(capture){
+		if(capture)
+		{
 			if(Math.abs(positionX-destinationX)==Math.abs(positionY-destinationY)){
 				return true;
 			}
