@@ -12,34 +12,36 @@ public class ChessGame {
 		int colorFlag = 0;
 		boolean capture = false;
 		boolean isCastling;
+		boolean isKingSide;
 		int[] move = null;
 		for (int i = 0; i < input.length; i++) {
-			isCastling = isCastlingMove(input[i]);
-			if (i % 3 != 0 && !isCastling) {
+			
+			if (i % 3 != 0 && !isCastlingMove(input[i])) {
 				move = splitMove(input[i]);
 				capture = (move[4] == 1) ? true : false;
 			}
 
-			if (i % 3 != 0 && colorFlag == 0 && !isCastling) {
-
+			if (i % 3 != 0 && colorFlag == 0 && !isCastlingMove(input[i])) {
 				playerA.play((char) move[0], move[1], move[2], move[3], capture);
 				colorFlag = 1;
 				if (capture) {
 					playerB.removeChessPieceAt(move[1], move[2]);
 				}
-			} else if (i % 3 != 0 && colorFlag == 1 && !isCastling) {
+			} else if (i % 3 != 0 && colorFlag == 1 && !isCastlingMove(input[i])) {
 
 				playerB.play((char) move[0], move[1], move[2], move[3], capture);
 				colorFlag = 0;
 				if (capture) {
 					playerA.removeChessPieceAt(move[1], move[2]);
 				}
-			} else if (i % 3 != 0 && colorFlag == 0 && isCastling) {
-				playerA.playCastlingMove((input[i].length()==3));
+			} else if (i % 3 != 0 && colorFlag == 0 && isCastlingMove(input[i])) {
+				isKingSide=(input[i].length()==3);
+				playerA.playCastlingMove(isKingSide);
 				colorFlag=1;
 				
-			} else if (i % 3 != 0 && colorFlag == 1 && isCastling) {
-				playerB.playCastlingMove((input[i].length()==3));
+			} else if (i % 3 != 0 && colorFlag == 1 && isCastlingMove(input[i])) {
+				isKingSide=(input[i].length()==3);
+				playerB.playCastlingMove(isKingSide);
 				colorFlag=0;
 			}
 		}
@@ -60,7 +62,7 @@ public class ChessGame {
 		int posX;
 		int posY;
 		boolean capture;
-		String POSITION_X = "abcdefgf";
+		String POSITION_X = "abcdefgh";
 		int currentPos;
 		if (isPawnMove(move)) {
 			if (move.contains("x")) {
