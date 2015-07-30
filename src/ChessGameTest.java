@@ -33,5 +33,19 @@ public class ChessGameTest {
 		assertEquals("DestinationY", 2, splittedMove[2]);
 		assertEquals("Capture", 1, splittedMove[4]);
 	}
+	@Test
+	public void testIsPawnMove() {
+		ChessGame chessGame = new ChessGame();
+		assertEquals("Returns True", true,chessGame.isPawnMove("e5") );
+		assertEquals("Returns True", false,chessGame.isPawnMove("Nd4") );
+		assertEquals("Returns True", true,chessGame.isPawnMove("fx5") );
+	}
+	@Test
+	public void testIsCastlingMove() {
+		ChessGame chessGame = new ChessGame();
+		assertEquals("Returns True", true,chessGame.isCastlingMove("O-O") );
+		assertEquals("Returns True", false,chessGame.isPawnMove("Nd4") );
+	}
+	
 
 }
