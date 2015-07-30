@@ -16,9 +16,7 @@ public class Move
 	
 	public boolean isADiagonalMove()
 	{
-		if(displacementX==displacementY)
-			return true;
-		return false;
+			return displacementX==displacementY;
 	}
 	
 	public boolean isAPlusMove()
@@ -29,23 +27,17 @@ public class Move
 	
 	public boolean isAnLShapedMove()
 	{
-		if((displacementX==2 && displacementY==1)|| (displacementY==2 && displacementX==1))
-			return true;
-		return false;
+			return (displacementX==2 && displacementY==1)|| (displacementY==2 && displacementX==1);	
 	}
 	
 	public boolean isAHorizontalMove()
 	{
-		if(displacementX!=0 && displacementY==0)
-			return true;
-		return false;
+			return (displacementX!=0 && displacementY==0);
 	}
 	
 	public boolean isAVerticalMove()
 	{
-		if(displacementY!=0 && displacementX==0)
-			return true;
-		return false;
+			return (displacementY!=0 && displacementX==0);
 	}
 
 }
